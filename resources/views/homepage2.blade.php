@@ -76,7 +76,7 @@
                         <div class="section-title-09 justify-content-center text-center align-items-center">
                             <h2 class=" text-white"><b>THE BURGUNDY MASTERCLASS</b></h2>
                             <h4 class=" text-white mb-0">A CULINARY EXPERIENCE LIKE NO OTHER</h4>
-                            <a href="https://shop.sammighty.com.ng/carts" class="section-title-09__btn justify-content-center text-white">Shop Now</a>
+                            <a href="https://shop.sammighty.com.ng/" class="section-title-09__btn justify-content-center text-white">Shop Now</a>
                         </div>
                         <!-- Section Title End -->
                     </div>

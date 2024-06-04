@@ -319,7 +319,7 @@
                             <a href="{{url('/')}}" class="menu-item-link active"><span>EXPERIENCE</span></a>
                         </li>
                         <li>
-                            <a href="{{url('/')}}" class="menu-item-link active"><span>Shop</span></a>
+                            <a href="https://shop.sammighty.com.ng" class="menu-item-link active"><span>Shop</span></a>
                         </li>
 
                         <li><a class="menu-item-link" href="#"><span>Contact</span></a></li>
@@ -333,12 +333,12 @@
                     <ul class="header-meta__action d-flex justify-content-end">
                         <li><button class="action search-open"><i class="lastudioicon-zoom-1"></i></button></li>
                         <li>
-                            <button class="action" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart">
+                            <a href="https://shop.sammighty.com.ng/carts" class="action" >
                                 <i class="lastudioicon-shopping-cart-2"></i>
 {{--                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">3</span>--}}
-                            </button>
+                            </a>
                         </li>
-                        <li><a class="action" href="shop-account.html"><i class="lastudioicon-single-01-2"></i></a></li>
+                        <li><a class="action" href="https://shop.sammighty.com.ng/login"><i class="lastudioicon-single-01-2"></i></a></li>
                         <li class="d-lg-none">
                             <button class="action" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"><i class="lastudioicon-menu-8-1"></i></button>
                         </li>
@@ -393,7 +393,7 @@
                 <a href="{{url('/')}}" class="menu-item-link active"><span>EXPERIENCE</span></a>
             </li>
             <li>
-                <a href="{{url('/')}}" class="menu-item-link active"><span>Shop</span></a>
+                <a href="https://shop.sammighty.com.ng" class="menu-item-link active"><span>Shop</span></a>
             </li>
 {{--            <li class="position-static">--}}
 {{--                <a class="menu-item-link" href="{{route('about')}}"><span>About-Us</span></a>--}}

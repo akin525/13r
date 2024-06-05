@@ -56,12 +56,16 @@
 
 
     <!-- Shop Banner Section Start -->
-    <div class="shop-banner shop-banner_bg" data-bg-image="{{asset('pp.jpeg')}}">
+    <div  class="shop-banner shop-banner_bg" data-bg-image="{{asset('pp.jpeg')}}">
         <div class="container">
             <div class="row align-items-center">
 {{--                <div class="col-lg-4 col-md-6 col-sm-6 col-8 order-lg-1 order-md-2 order-2">--}}
 {{--                    <div class="shop-banner_one">--}}
-{{--                        <img src="assets/images/banner/home9-banner1.jpg" alt="Banner-Image">--}}
+{{--                        <img src="assets/jo.jpg" alt="Banner-Image">--}}
+{{--                        <video width="640" height="360" controls autoplay muted>--}}
+{{--                            <source src="{{asset('assets/jollo.mp4')}}" type="video/mp4">--}}
+{{--                            Your browser does not support the video tag.--}}
+{{--                        </video>--}}
 {{--                        <span class="shop-banner_one__border"></span>--}}
 {{--                        <ul class="shop-banner_social">--}}
 {{--                            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>--}}
@@ -89,6 +93,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        window.onload = function() {
+            var videoContainer = document.getElementById('video-container');
+            videoContainer.innerHTML = `
+            <video width="640" height="360" controls autoplay muted>
+                <source src="{{asset('assets/jollo.mp4')}}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        `;
+            videoContainer.style.backgroundImage = 'none';
+        };
+    </script>
     <!-- Shop Banner Section End -->
 
     <!-- OurMenu Section Start -->
@@ -162,8 +179,117 @@
     </div>
     <!-- Gift Banner Section End -->
 
+    <br/>
+    <br/>
+    <br/>
+    <!-- Best Service Section Strat -->
+    <div class="best-service">
 
+        <!-- Section Title Strat -->
+        <div class="section-title-04 text-center">
+            <h5 class="section-title-04__sub-title">Best service</h5>
+            <h2 class="section-title-04__title">Best service</h2>
+        </div>
+        <!-- Section Title End -->
 
+        <div class="container">
+            <div class="row gx-xxl-10 mb-n30">
+                <div class="col-lg-6 col-12 mb-30">
+
+                    <!-- Section Title Strat -->
+                    <div class="best-service-image">
+{{--                        <div class="best-service-image__image" style="background-image: url(assets/images/best-service-image.jpg);"></div>--}}
+
+                        <video width="640" height="640"  autoplay loop controls>
+                            <source src="{{asset('pi.mp4')}}" type="video/mp4">
+{{--                            Your browser does not support the video tag.--}}
+                        </video>
+                    </div>
+                    <!-- Section Title End -->
+
+                </div>
+                <div class="col-lg-6 col-12 mb-30">
+                    <div class="row g-6">
+                        <div class="col-sm-6">
+
+                            <!-- Best Service Strat -->
+                            <div class="best-service-item">
+                                <div class="best-service-item__sub-title">01.</div>
+                                <h4 class="best-service-item__title">STAY</h4>
+                                <p class="best-service-item__desc">Need somewhere to stay while you’re in Beaune, France? Our pied-à-terre is a short walk from our Atelier. Once the original home of The Cook’s Atelier, it is a beautiful, light-filled two bedroom flat decorated in our Atelier style.</p>
+                            </div>
+                            <!-- Best Service End -->
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <!-- Best Service Strat -->
+                            <div class="best-service-item">
+                                <div class="best-service-item__sub-title">02.</div>
+                                <h4 class="best-service-item__title">Free shipping</h4>
+                                <p class="best-service-item__desc">Enjoy free shipping in every of our platform</p>
+                            </div>
+                            <!-- Best Service End -->
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <!-- Best Service Strat -->
+                            <div class="best-service-item">
+                                <div class="best-service-item__sub-title">03.</div>
+                                <h4 class="best-service-item__title">new design</h4>
+                                <p class="best-service-item__desc">Customize your product the way you love it</p>
+                            </div>
+                            <!-- Best Service End -->
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <!-- Best Service Strat -->
+                            <div class="best-service-item">
+                                <div class="best-service-item__sub-title">04.</div>
+                                <h4 class="best-service-item__title">high-quality service</h4>
+                                <p class="best-service-item__desc">We deliver high quality services for our customer.</p>
+                            </div>
+                            <!-- Best Service End -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Best Service Section End -->
+    <br/>
+    <br/>
+    <br/>
+
+    <!-- Event Section Strat -->
+    <div class="event">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="event_image">
+                        <img src="{{asset('pick.jpg')}}" alt="Event-Image">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="event_content">
+                        <span class="event_subtitle">New Event</span>
+                        <h2 class="event_title">10K+ client</h2>
+                        <span class="event_discount">sale up to 50%</span>
+                        <p class="event_text">Quality Services Render By our Customer</p>
+                        <a href="https://shop.sammighty.com.ng/" class="btn btn-outline-dark btn-hover-secondary rounded-pill">purchase now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Event Section End -->
+<br/>
+<br/>
+<br/>
     <!-- Portfolio Banner Section Start -->
     <div class="portfolio-banner section-padding-03" data-bg-image="">
         <div class="container">

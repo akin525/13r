@@ -116,7 +116,7 @@
                     <div class="menu-banner_image">
                         <a href="#"><img src="{{asset('fd3.jpg')}}" alt="Banner-Image"></a>
                         <a class="banner-add-btn" href="#"><i class="lastudioicon lastudioicon-i-add-2"></i></a>
-                        <span class="banner-name-style">1303</span>
+{{--                        <span class="banner-name-style">1303</span>--}}
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -307,7 +307,7 @@
                     <div class="portfolio-banner_image">
                         <a class="portfolio-banner_image__thumb" href="#"><img src="{{asset('fd4.jpg')}}" alt="Banner-Image"></a>
                         <a class="banner-add-btn" href="#"><i class="lastudioicon lastudioicon-i-add-2"></i></a>
-                        <span class="banner-name-style-2">1303</span>
+{{--                        <span class="banner-name-style-2">1303</span>--}}
                     </div>
                 </div>
             </div>

@@ -213,7 +213,7 @@
 
                         <h4 class="widget-title">About Us</h4>
                         <p>
-                            Continued at zealously necessary is Surrounded sir motionless she end literature. Gay direction neglected.
+                            We are Professional catering company who caters to corporate and private events
                         </p>
 
                         <ul class="footer-social">

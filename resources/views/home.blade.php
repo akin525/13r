@@ -66,11 +66,11 @@
                     </div>
                 </div>
                 <div class="col-lg-6 pl-50 pl-md-15 pl-xs-15">
-                    <h2 class="title">Best food ideas & <br> traditions in the world</h2>
+                    <h2 class="title">Reserve your favorite  <br> private table</h2>
                     <div class="item-grid-two-colum mt-40">
                         <div class="item">
                             <p>
-                                Need somewhere to stay while you’re in Home? Our foot on the ground is a short walk from our workshop. Once the original home of The Cook’s workshop, it is a beautiful, light-filled two bedroom flat decorated in our workshop style.
+                                Are you a visitor in Lagos? Our foods are the best meals you can have
                             </p>
                             <a class="btn btn-theme btn-md animation" href="#">Explore menu</a>
                         </div>
@@ -468,7 +468,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="phone">Phone</label>
-                                        <input class="form-control" id="phone" name="phone" placeholder="+4733378901" type="text">
+                                        <input class="form-control" id="phone" name="phone" placeholder="0806644687" type="text">
                                     </div>
                                 </div>
                             </div>

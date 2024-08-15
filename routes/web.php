@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\VariationController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MembershioController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -33,28 +34,29 @@ Route::get('/logout', function(){
     return Redirect::to('login');
 });
 Route::get('/', [HomeController::class, 'landingpage'])->name('home');
+Route::get('/newpage', [HomeController::class, 'landingpage1'])->name('newpage');
 Route::get('home', [HomeController::class, 'landingpage'])->name('home');
 Route::get('checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('product/{id}', [HomeController::class, 'getproduct']);
-Route::get('cakes', [HomeController::class, 'allcake'])->name('cakes');
+Route::get('shop', [HomeController::class, 'allcake'])->name('shop');
 
 
-Route::get('cakedetail/{id}', [HomeController::class, 'cakedetail'])->name('cakedetail');
+Route::get('fooddetail/{id}', [HomeController::class, 'cakedetail'])->name('fooddetail');
 Route::get('addcart/{id}', [HomeController::class, 'addcart'])->name('addcart');
 Route::get('cart', [HomeController::class, 'mycart'])->name('cart');
 Route::post('cancelcart', [CartController::class, 'removefromcart'])->name('cancelcart');
 Route::get('clearcart', [CartController::class, 'clearcart'])->name('clearcart');
-Route::get('category/{id}', [HomeController::class, 'category'])->name('category');
+Route::get('/category/{id}/', [HomeController::class, 'category'])->name('category');
+Route::post('search}', [HomeController::class, 'searccakeh'])->name('search');
 Route::get('ready', [HomeController::class, 'loadrtb'])->name('ready');
 Route::get('getlayer/{id}', [HomeController::class, 'getlayer'])->name('getlayer');
 Route::get('getsize', [HomeController::class, 'getsize'])->name('getsize');
 Route::post('addcart1', [HomeController::class, 'addcart'])->name('addcart1');
+Route::post('mes', [HomeController::class, 'message'])->name('mes');
 Route::get('cart', [HomeController::class, 'mycart'])->name('cart');
 Route::post('check', [OrderController::class, 'postorder'])->name('check');
 Route::get('tran', [OrderController::class, 'confirmpayment'])->name('tran');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 
 Route::get('about', [HomeController::class, 'aboutus'])->name('about');
@@ -91,16 +93,43 @@ Route::get('/cover/{filename}', function ($filename) {
     $response->header("Content-Type", $type);
     return $response;
 })->name('cover');
+Route::get('/cat/{filename}', function ($filename) {
+    $path = storage_path('app/cat/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+})->name('cat');
 
 Route::get('admin/login', [AuthController::class, 'loginadmin'])->name('admin/login');
 Route::post('admin/auth', [AuthController::class, 'authloginadmiin'])->name('admin/auth');
 
+Route::get('membership/login',[MembershioController::class, 'loginmembershipindex'])->name('membership/login');
+Route::post('membership/login',[MembershioController::class, 'authlogin'])->name('membership/login');
+Route::middleware(['auth'])->group(function () {
+    Route::get('membership/plans', [MembershioController::class, 'myplan'])->name('membership/plans');
+    Route::get('membership/detail/{id}', [MembershioController::class, 'plandeatail'])->name('membership/detail');
+    Route::post('membership/paycard', [MembershioController::class, 'completeplanwithcard'])->name('membership/paycard');
+    Route::get('membership/tran', [MembershioController::class, 'verifytransactiion'])->name('membership/tran');
+    Route::group(['middleware' => ['plan']], function () {
+        Route::get('membership/dashboard', [MembershioController::class, 'mydashboard'])->name('membership/dashboard');
+        Route::get('membership/order', [MembershioController::class, 'myorder'])->name('membership/order');
+    });
+});
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/dashboard', [AuthController::class, 'dashboardadmin'])->name('admin/dashboard');
 
 
     Route::get('admin/allproduct', [AuthController::class, 'allproduct'])->name('admin/allproduct');
+    Route::post('admin/searchproduct', [AuthController::class, 'searchproduct'])->name('admin/searchproduct');
     Route::get('admin/addproduct', [ProductsController::class, 'addproductindex'])->name('admin/addproduct');
+    Route::get('admin/addproducts', [ProductsController::class, 'addproductindexs'])->name('admin/addproducts');
     Route::get('admin/addproduct1', [ProductsController::class, 'addproductindex1'])->name('admin/addproduct1');
     Route::post('admin/addproducts', [ProductsController::class, 'addproduct'])->name('admin/addproducts');
     Route::post('admin/addproducts1', [ProductsController::class, 'addproduct1'])->name('admin/addproducts1');
@@ -133,6 +162,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('admin/settings', [SetiingsController::class, 'loadsettings'])->name('admin/settings');
     Route::post('admin/savepage', [SetiingsController::class, 'changepage'])->name('admin/savepage');
+    Route::post('admin/saveslide', [SetiingsController::class, 'banneruploadslidder'])->name('admin/saveslide');
 
     Route::get('admin/size', [VariationController::class, 'sizeindex'])->name('admin/size');
     Route::post('admin/psize', [VariationController::class, 'createsize'])->name('admin/psize');
@@ -168,6 +198,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('admin/attribute', [\App\Http\Controllers\admin\CreateAttributeController::class, 'index'])->name('admin/attribute');
     Route::post('admin/attribute', [\App\Http\Controllers\admin\CreateAttributeController::class, 'createattribute'])->name('admin/attribute');
+    Route::post('admin/attributes', [\App\Http\Controllers\admin\CreateAttributeController::class, 'updateattribute'])->name('admin/attributes');
+    Route::get('admin/deletet/{id}', [\App\Http\Controllers\admin\CreateAttributeController::class, 'deleteattribute'])->name('admin/deletet');
 
     Route::get('admin/delete/{id}', [ProductsController::class, 'destroyproduct'])->name('admin/delete');
 
@@ -176,7 +208,18 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::post('admin/updatecategory', [CategoryController::class, 'updatecategory'])->name('admin/updatecategory');
     Route::get('admin/detetcategory/{id}', [CategoryController::class, 'detetecategory'])->name('admin/detetcategory');
+
+
+    Route::get('admin/option', [ProductsController::class, 'postoptionindex'])->name('admin/option');
+    Route::post('admin/option', [ProductsController::class, 'postoptionproduct'])->name('admin/option');
+    Route::post('admin/addall', [AuthController::class, 'addgeneralamount'])->name('admin/addall');
+
+
+    Route::get('admin/topper', [SetiingsController::class, 'loadtopper'])->name('admin/topper');
+    Route::post('admin/topper', [SetiingsController::class, 'createtopper'])->name('admin/topper');
+    Route::post('admin/updatetopper', [SetiingsController::class, 'updatetopper'])->name('admin/updatetopper');
+    Route::get('admin/deletetopper/{id}', [SetiingsController::class, 'detetetopper'])->name('admin/deletetopper');
 });
-    require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';
 
 

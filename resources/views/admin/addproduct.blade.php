@@ -75,6 +75,34 @@
                                         <input placeholder="NGN" type="number" name="tamount" class="form-control" id="promotional-price">
                                     </div>
                                 </div>
+
+
+                                <div class="checkbox-container">
+                                    <label>
+                                        <input type="hidden" name="topper" value="0">
+                                        <input type="checkbox" value="1" name="topper" class="checkbox" data-index="0" >Allow Topper
+                                    </label>
+                                    <label>
+                                        <input type="hidden" name="card" value="0">
+                                        <input type="checkbox" value="1" name="card" class="checkbox" data-index="1" > Allow Eko Card
+                                    </label>
+                                    {{-- <label> --}}
+                                    {{-- <input type="checkbox" class="checkbox" data-index="2"> Option 3 --}}
+                                    {{-- </label> --}}
+                                </div>
+                                <br/>
+                                <br/>
+                                <script>
+                                    document.querySelectorAll('.checkbox').forEach((checkbox) => {
+                                        // Set initial value based on checked state
+                                        checkbox.value = checkbox.checked ? 1 : 0;
+
+                                        checkbox.addEventListener('change', function() {
+                                            this.value = this.checked ? 1 : 0;
+                                            console.log(`Checkbox ${this.dataset.index} value: ${this.value}`);
+                                        });
+                                    });
+                                </script>
                             </div>
                             <div class="card mb-8 rounded-4" id="layers">
                                 <div class="card-header p-7 bg-transparent">
@@ -117,6 +145,13 @@
 
                                 .variation input[type="number"] {
                                     width: 80px;
+                                }
+                                .checkbox-container {
+                                    display: flex;
+                                    flex-direction: row;
+                                }
+                                .checkbox-container label {
+                                    margin-right: 10px;
                                 }
                             </style>
                             <div class="card mb-8 rounded-4" id="variations">
@@ -216,6 +251,60 @@
 
 
 
+                            <div class="card-header p-7 bg-transparent">
+                                <h4 class="fs-18px mb-0 font-weight-500">More Options</h4>
+                            </div>
+                            <div id="items-container">
+                                <div class="item">
+                                    <div class="mb-8">
+                                        <label for="shipping-fee" class="mb-4 fs-13px ls-1 fw-bold text-uppercase">Item Name</label>
+                                        <input type="text" name="items[0][Sizes]" class="form-control" id="sizes">
+                                    </div>
+                                    <div class="mb-8">
+                                        <label for="shipping-fee" class="mb-4 fs-13px ls-1 fw-bold text-uppercase">Price</label>
+                                        {{--                                            <input type="text" name="attribute[][name]" id="attributeName" class="form-control" placeholder="Name" required>--}}
+
+                                        <input type="number"  name="items[0][price]" id="price" class="form-control">
+
+                                    </div>
+                                </div>
+
+                                </div>
+
+                            <button type="button" id="add-item" class="btn btn-primary">Add Another Item</button>
+                            <script>
+                                document.getElementById('add-item').addEventListener('click', function() {
+                                    let container = document.getElementById('items-container');
+                                    let itemCount = container.getElementsByClassName('item').length;
+                                    let newItem = document.createElement('div');
+                                    newItem.className = 'item';
+                                    newItem.innerHTML = `
+                                        <div class="mb-8">
+                                            <label for="shipping-fee" class="mb-4 fs-13px ls-1 fw-bold text-uppercase">Item Name</label>
+                                            <input type="text" name="items[${itemCount}][Sizes]" id="sizes" class="form-control">
+                                           </div>
+                                <div class="mb-8">
+                                            <label for="shipping-fee" class="mb-4 fs-13px ls-1 fw-bold text-uppercase">Item Price</label>
+                                            <input type="number" name="items[${itemCount}][price]" id="price" class="form-control">
+                                           </div>
+            `;
+                                    container.appendChild(newItem);
+                                });
+                            </script>
+
+
+{{--                            <div id="items-container">--}}
+{{--                                <div class="item">--}}
+{{--                                    <label for="sizes">Sizes:</label>--}}
+{{--                                    <input type="text" name="items[0][Sizes]" id="sizes">--}}
+{{--                                    <label for="price">Price:</label>--}}
+{{--                                    <input type="number" name="items[0][price]" id="price">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+                            <br/>
+                            <br/>
+
+
                             <br/>
                             <br/>
 
@@ -301,16 +390,17 @@
                         <div class="card-body p-7">
                             <div class="row mx-n3">
                                 <div class="">
-                                    <label class="mb-4 fs-13px ls-1 fw-bold text-uppercase " for="category">Category</label>
+                                    <label class="mb-4 fs-13px ls-1 fw-bold text-uppercase" for="category">Category</label>
                                     @foreach ($category as $cat)
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="categories" value="{{ $cat->name }}" id="category{{ $cat->id }}">
+                                            <input class="form-check-input" type="checkbox" name="categories[]" value="{{ $cat->id }}" id="category{{ $cat->id }}">
                                             <label class="form-check-label" for="category{{ $cat->id }}">
                                                 {{ $cat->name }}
                                             </label>
                                         </div>
                                     @endforeach
                                 </div>
+
                                 <div class="mb-5 col-12 px-3">
                                     <label for="tag" class="mb-4 fs-13px ls-1 fw-bold text-uppercase">Tags</label>
                                     <input type="text" class="form-control" id="tag">

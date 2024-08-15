@@ -103,7 +103,7 @@ function landingpage()
                 return view('homepage1', compact('product',
                     'product1', 'setting', 'hot', 'fq', 'latest', 'category', 'cartsum', 'cart'));
             }elseif ($page->page == 03){
-                return view('homepage2', compact('product',
+                return view('home', compact('product',
                     'product1', 'setting', 'hot', 'fq', 'latest', 'category', 'cartsum', 'cart'));
             }
 

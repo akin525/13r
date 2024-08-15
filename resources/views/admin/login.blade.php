@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/eko.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('13.jpeg')}}">
 
     <!-- CSS (Font, Vendor, Icon, Plugins & Style CSS files) -->
 
@@ -131,7 +131,7 @@
                 <span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
                 {{--            <h4 class="company_title">Your Company Logo</h4>--}}
                 <center>
-                    <img width="100" src="{{asset('assets/images/eko.png')}}" alt=""/>
+                    <img width="100" src="{{asset('13.jpeg')}}" alt=""/>
                 </center>
             </div>
             <div class="col-md-8 col-xs-12 col-sm-12 login_form ">

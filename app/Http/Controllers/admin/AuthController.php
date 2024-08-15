@@ -63,6 +63,16 @@ function authloginadmiin(Request $request)
 
      return view('admin.products', compact('product', 'category'));
  }
+ function searchproduct(Request $request)
+ {
+     $category=Categories::all();
+//     $product=Products::orderBy('id', 'DESC')->paginate('10');
+
+     $product=Products::where([['name', 'like', '%'.$request->name.'%']])
+         ->orderBy('id', 'DESC')
+         ->paginate('12');
+     return view('admin.searchproducts', compact('product', 'category'));
+ }
  function allorder()
  {
      $order=Orders::all();
@@ -122,5 +132,22 @@ function allrtg()
             'amounts' => $amounts,
         ]);
     }
+     public function addgeneralamount(Request $request)
+     {
+         $request->validate([
+             'amount'=>'required',
+         ]);
+         $amount = $request->input('amount');
+         $products=Products::all();
+         foreach ($products as $product) {
+             $product->price += $amount;
+             $product->save();
+         }
+         $msg="Amount added to all products successfully.";
+         return response()->json([
+             'status'=>'success',
+             'message'=>$msg,
+         ]);
+     }
 
 }

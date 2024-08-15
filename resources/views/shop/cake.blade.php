@@ -1,196 +1,146 @@
-@extends('layouts.header')
-@section('tittle', 'All-Cake')
+@extends('layouts.header1')
+@section('tittle', 'All-Menu')
 @section('content')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <script>
-            window.onload = function() {
-                setTimeout(function() {
-                    {{--var username = @json(Auth::user()->username);--}}
-                    var message = "Dear Ekosians, please note a minimum of 24 hours is required for all categories except the Ready to Go category. Cakes under the Ready to go Category can be available between 1-6 hours after order is placed";
+{{--        <script>--}}
+{{--            window.onload = function() {--}}
+{{--                setTimeout(function() {--}}
+{{--                    --}}{{--var username = @json(Auth::user()->username);--}}
+{{--                    var message = "Dear Ekosians, please note a minimum of 24 hours is required for all categories except the Ready to Go category. Cakes under the Ready to go Category can be available between 1-6 hours after order is placed";--}}
 
-                    Swal.fire({
-                        title: 'Note:',
-                        html: message,
-                        icon: 'info'
-                    });
-                }, 1000);
-            };
-        </script>
+{{--                    Swal.fire({--}}
+{{--                        title: 'Note:',--}}
+{{--                        html: message,--}}
+{{--                        icon: 'info'--}}
+{{--                    });--}}
+{{--                }, 1000);--}}
+{{--            };--}}
+{{--        </script>--}}
     <!-- Breadcrumb Section Start -->
-    <div class="breadcrumb" data-bg-image="{{asset('assets/images/bg/breadcrumb-bg.jpg')}}">
+
+    <div class="breadcrumb-area bg-cover shadow dark text-center text-light" style="background-image: url(13/assets/img/shape/5.jpg);">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb_content">
-                        <h1 class="rowdies-bold text-white">All Cake</h1>
-                        <ul class="breadcrumb_list">
-                            <li><a href="{{route('home')}}">Home</a></li>
-                            <li>Cakes</li>
-                        </ul>
-                    </div>
+                <div class="col-lg-12 col-md-12">
+                    <h1>Special Food</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="{{url('/')}}"><i class="fas fa-home"></i> Home</a></li>
+                        <li>Menu</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
     <!-- Breadcrumb Section End -->
-    <marquee><b>
-            Dear Ekosians, please note a minimum of 24 hours is required for all categories except the Ready to Go category. Cakes under the Ready to go Category can be available between 1-6 hours after order is placed
-        </b></marquee>
+{{--    <marquee><b>--}}
+{{--            Dear Ekosians, please note a minimum of 24 hours is required for all categories except the Ready to Go category. Cakes under the Ready to go Category can be available between 1-6 hours after order is placed--}}
+{{--        </b></marquee>--}}
     <!-- Product Section Start -->
-    <div class="shop-product-section sidebar-right overflow-hidden">
+    <!-- Start Shop
+      ============================================= -->
+    <div class="validtheme-shop-area default-padding">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 section-padding-04">
+            <div class="shop-listing-contentes">
 
-                    <div class="row row-cols-xl-3 row-cols-lg-2 row-cols-sm-2 row-cols-1 mb-n50">
-                        @forelse($product as $pro)
-                        <div class="col mb-50">
-                            <!-- Product Item Start -->
-                            <div class="product-item text-center" style="border-radius: 50px; background-color: #ffffff; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);">
-                                <div class="product-item__badge">Hot</div>
-                                <div class="product-item__image border w-100">
-                                    <a href="{{route('cakedetail', $pro['id'])}}"><img width="350" height="350" src="{{$pro['image']}}" alt="Product"></a>
-                                    <ul class="product-item__meta">
-                                        <li class="product-item__meta-action">
-                                            <a class="shadow-1 labtn-icon-quickview" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Quick View" data-product-id="{{$pro['id']}}" data-bs-toggle="modal" data-bs-target="#quickViewModal{{$pro['id']}}"></a>
-                                        </li>
-{{--                                        <li class="product-item__meta-action">--}}
-{{--                                            <a class="shadow-1 labtn-icon-cart" href="{{route('addcart1', $pro['id'])}}"></a>--}}
-{{--                                        </li>--}}
-{{--                                        <li class="product-item__meta-action">--}}
-{{--                                            <a class="shadow-1 labtn-icon-wishlist" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to wishlist" data-bs-toggle="modal" data-bs-target="#modalWishlist"></a>--}}
-{{--                                        </li>--}}
-{{--                                        <li class="product-item__meta-action">--}}
-{{--                                            <a class="shadow-1 labtn-icon-compare" href="#/" data-bs-tooltip="tooltip" data-bs-placement="top" title="Add to compare" data-bs-toggle="modal" data-bs-target="#modalCompare"></a>--}}
-{{--                                        </li>--}}
-                                    </ul>
+                <div class="row item-flex center">
+
+                    <div class="col-lg-7">
+                        <div class="content">
+                            <!-- Tab Nav -->
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button class="nav-link active" id="grid-tab-control" data-bs-toggle="tab" data-bs-target="#grid-tab" type="button" role="tab" aria-controls="grid-tab" aria-selected="true">
+                                        <i class="fas fa-th-large"></i>
+                                    </button>
+
+                                    <button class="nav-link" id="list-tab-control" data-bs-toggle="tab" data-bs-target="#list-tab" type="button" role="tab" aria-controls="list-tab" aria-selected="false">
+                                        <i class="fas fa-th-list"></i>
+                                    </button>
                                 </div>
-                                <div class="product-item__content pt-5">
-                                    <h5 class="rowdies-bold" style="font-size: 18px"><a href="{{route('cakedetail', $pro['id'])}}">{{$pro['name']}}</a></h5>
-                                    @if($pro['ramount'] != null)
-                                        <span class="product-item__price fs-4">₦{{number_format(intval($pro['ramount'] *1))}}</span>-
-                                        <span class="product-item__price fs-4">₦{{number_format(intval($pro['tamount'] *1))}}</span>
-                                    @else
-                                        <span class="product-item__price fs-4">₦{{number_format(intval($pro['price'] *1))}}</span>
-                                    @endif
-                                </div>
-                            </div>
-                            <!-- Product Item End -->
+                            </nav>
+                            <!-- End Tab Nav -->
                         </div>
-                            <div class="quickview-product-modal modal fade" id="quickViewModal{{$pro['id']}}" tabindex="-1" aria-labelledby="quickViewModalLabel{{$pro['id']}}" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered mw-100">
-                                    <div class="container">
-                                        <div class="modal-content">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                                <i class="lastudioicon lastudioicon-e-remove"></i>
-                                            </button>
-                                            <div class="modal-body">
+                    </div>
+
+                    <div class="col-lg-5 text-right">
 
 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Start Tab Content -->
+{{--                    <div class="tab-content tab-content-info text-center" id="shop-tabContent">--}}
+
+                        <!-- Strt Product Grid Vies -->
+                        <div class="tab-pane fade show active" id="grid-tab" role="tabpanel" aria-labelledby="grid-tab-control">
+                            <ul class="vt-products columns-4">
+                                @forelse($product as $pro)
+                                <!-- Single product -->
+                                <li class="product">
+                                    <div class="product-contents">
+                                        <div class="product-image">
+                                            <a href="#">
+                                                <img src="{{$pro['image']}}" alt="Product">
+                                            </a>
+{{--                                            <div class="shop-action">--}}
+{{--                                                <ul>--}}
+{{--                                                    <li class="wishlist">--}}
+{{--                                                        <a href="#"><span>Add to wishlist</span></a>--}}
+{{--                                                    </li>--}}
+{{--                                                    <li class="quick-view">--}}
+{{--                                                        <a href="#"><span>Quick view</span></a>--}}
+{{--                                                    </li>--}}
+{{--                                                </ul>--}}
+{{--                                            </div>--}}
+                                        </div>
+                                        <div class="product-caption">
+                                            <div class="product-tags">
+                                                @foreach($pro->categories as $category)
+                                                    <a href="#"> {{ $category->name }}</a>@if(!$loop->last), @endif
+                                                @endforeach
                                             </div>
+                                            <h4 class="product-title">
+                                                <a href="#">{{$pro->name}}</a>
+                                            </h4>
+                                            <div class="price">
+                                                <span>₦{{number_format(intval($pro['price'] *1))}}</span>
+                                            </div>
+                                            <a href="{{route('fooddetail', $pro['id'])}}" class="cart-btn"><i class="fas fa-shopping-bag"></i> Add to cart</a>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </li>
+                                <!-- Single product -->
+                                @empty
+                                    <p class="text-center cormorant-upright-bold">No Product Available On Store</p>
+                                @endforelse
 
-                        @empty
-                            <p class="text-center">No Product Available On Store</p>
-                        @endforelse
-                    </div>
-                    <!-- Product Section End -->
-                    <!-- Shop bottom Bar Start -->
-                    <div class="shop-bottombar">
-                        <ul class="pagination">
-                            {{$product->links()}}
-
-                        </ul>
-                    </div>
-                    <!-- Shop bottom Bar End -->
-                </div>
-                <div class="col-md-4">
-                    <div class="sidebars">
-                        <div class="sidebars_inner">
-
-                            <!-- Search Widget Start -->
-                            <form action="#" class="sidebars_search">
-                                <input type="text" placeholder="Search Here" class="sidebars_search__input">
-                                <button class="sidebars_search__btn">
-                                    <i class="lastudioicon-zoom-1"></i>
-                                </button>
-                            </form>
-                            <!-- Search Widget End -->
-
-                            <!-- Category Widget Start -->
-                            <div class="sidebars_widget">
-                                <h3 class="sidebars_widget__title">Category</h3>
-                                <ul class="sidebars_widget__category">
-                                    @foreach($category as $cat)
-                                        <li><a href="{{url('category', $cat['name'])}}">{{$cat['name']}}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            <!-- Category Widget End -->
-
-                            <!-- Popular Product Widget Start -->
-                            <div class="sidebars_widget">
-                                <h3 class="sidebars_widget__title">Popular products</h3>
-                                <ul class="sidebars_widget__product">
-                                    @foreach($pop as $pu)
-                                    <!-- Single Product Start -->
-                                    <li class="single-product">
-                                        <a href="{{route('cakedetail', $pu['id'])}}" class="single-product_thumb">
-                                            <img width="50" src="{{$pu['image']}}" alt="Sidebar-Image">
-                                        </a>
-                                        <div class="single-product_content">
-                                            <a href="#" class="single-product_content__title">{{$pu['name']}}</a>
-                                            <span class="single-product_content__price">₦{{number_format(intval($pu['price'] *1))}}</span>
-                                        </div>
-                                    </li>
-                                        @endforeach
-
-                                </ul>
-                            </div>
-                            <!-- Popular Product Widget End -->
-
+                            </ul>
                         </div>
-                    </div>
-                </div>
+                        <!-- End Product Grid Vies -->
 
+
+
+
+{{--                    </div>--}}
+                    <!-- End Tab Content -->
+
+
+
+                    <!-- Pgination -->
+                    <nav class="woocommerce-pagination">
+                        <ul class="page-numbers">
+                           {{$product->links()}}
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
+    <!-- End Shop -->
 
-    <div class="faq">
-        <div class="container custom-container">
-            <div class="row" id="exampleOne">
 
-                <div class="">
-                    <div class="faq-head align-content-center">
-                        <h4 class="faq-head__title text-center rowdies-bold" style="font-size: 20px">FREQUENTLY ASKED QUESTIONS</h4>
-                        <span class="faq-head__border"></span>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="accordion">
-                        @foreach($fq as $fa)
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$fa['id']}}" aria-expanded="true" aria-controls="collapseOne">
-                                        <span class="rowdies-regular" style="font-size: 18px">{{$fa['heading']}}</span>
-                                        <i class="lastudioicon lastudioicon-down-arrow"></i>
-                                    </button>
-                                </h2>
-                                <div id="collapse{{$fa['id']}}" class="accordion-collapse collapse" data-bs-parent="#exampleOne">
-                                    <div class="accordion-body cormorant-upright-bold" style="font-size: 21px">{!! $fa['content'] !!}</div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <!-- Product Section End -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

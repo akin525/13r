@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-xl col-lg flex-grow-0 mb-xl-0 mb-7" style="flex-basis: 230px">
                     <div class="img-thumbnail shadow w-100 bg-body position-relative text-center mt-n20 py-3 px-4">
-                        <img class="lazy-image img-fluid" src="#" data-src="{{asset('assets/images/eko.png')}}" alt="Logo Brand" width="180" height="180">
+                        <img class="lazy-image img-fluid" src="#" data-src="{{asset('13.jpeg')}}" alt="Logo Brand" width="180" height="180">
                     </div>
                 </div>
                 <div class="col-xl col-lg">

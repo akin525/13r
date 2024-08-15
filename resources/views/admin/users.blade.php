@@ -49,7 +49,7 @@
                 <div class="col-sm-6 col-lg-3 mb-9">
                     <div class="card card-user rounded-4">
                         <div class="card-header text-center">
-                            <img class="img-avatar lazy-image text-center" src="#" data-src="{{asset('assets/images/eko.png')}}" alt="Marvin McKinney" width="112" height="112">
+                            <img class="img-avatar lazy-image text-center" src="#" data-src="{{asset('13.jpeg')}}" alt="Marvin McKinney" width="112" height="112">
                         </div>
                         <div class="card-body text-center p-7">
                             <h5 class="card-title mt-12 fs-6 mb-6">{{$users['name']}}</h5>

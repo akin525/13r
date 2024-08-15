@@ -231,7 +231,7 @@
 {{--            <div class="col-lg-3 col-7">--}}
 {{--                <!-- Header Logo Start -->--}}
 {{--                <div class="header-logo">--}}
-{{--                    <a href="{{url('/')}}"><img src="{{asset('assets/images/eko.png')}}" width="100"  alt="Logo"></a>--}}
+{{--                    <a href="{{url('/')}}"><img src="{{asset('13.jpeg')}}" width="100"  alt="Logo"></a>--}}
 {{--                </div>--}}
 {{--                <!-- Header Logo End -->--}}
 {{--            </div>--}}

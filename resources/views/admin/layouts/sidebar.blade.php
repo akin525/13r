@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('tittle')</title>
-    <script src="{{assert('cdn-cgi/apps/head/2oc_RD5SS6wgN5SiQnSEnWVNHg8.js')}}"></script><link rel="icon" href="{{asset('assets/images/eko.png')}}">
+    <script src="{{assert('cdn-cgi/apps/head/2oc_RD5SS6wgN5SiQnSEnWVNHg8.js')}}"></script><link rel="icon" href="{{asset('13.jpeg')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/lightgallery/css/lightgallery-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendors/fontawesome/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin//assets/vendors/animate/animate.min.css')}}">
@@ -58,8 +58,8 @@
                 <div class="sticky-area border-right">
                     <div class="d-flex px-6 px-xl-10 w-100 border-bottom py-7 justify-content-between">
                         <a href="{{route('admin/dashboard')}}" class="navbar-brand py-4">
-                            <img class="light-mode-img" src="{{asset('assets/images/eko.png')}}" width="50" alt="Glowing - Bootstrap 5 HTML Templates">
-                            <img class="dark-mode-img" src="{{asset('assets/images/eko.png')}}" width="50" alt="Glowing - Bootstrap 5 HTML Templates"></a>
+                            <img class="light-mode-img" src="{{asset('13.jpeg')}}" width="50" alt="Glowing - Bootstrap 5 HTML Templates">
+                            <img class="dark-mode-img" src="{{asset('13.jpeg')}}" width="50" alt="Glowing - Bootstrap 5 HTML Templates"></a>
                         <div class="ml-auto d-flex align-items-center ">
                             <div class="d-flex align-items-center d-xl-none">
                                 <div class="color-modes position-relative px-4">
@@ -108,11 +108,12 @@
                         </div>
                     </div>
                     <div class="collapse navbar-collapse bg-body position-relative z-index-5" id="primaryMenuSidebar">
-                        <form class="d-block d-xl-none pt-8 px-6">
+                        <form class="d-block d-xl-none pt-8 px-6" method="post" action="{{route('admin/searchproduct')}}">
+                            @csrf
                             <div class="input-group position-relative bg-body-tertiary">
-                                <input type="text" class="form-control border-0 bg-transparent pl-4 shadow-none" placeholder="Search Item">
+                                <input type="text" name="name" class="form-control border-0 bg-transparent pl-4 shadow-none" placeholder="Search Item">
                                 <div class="input-group-append fs-14px px-6 border-start border-2x ">
-                                    <button class="bg-transparent border-0 outline-none py-5">
+                                    <button type="submit" class="bg-transparent border-0 outline-none py-5">
                                         <i class="far fa-search"></i>
                                     </button>
                                 </div>
@@ -133,6 +134,14 @@
 <i class="fas fa-home-lg-alt"></i>
 </span>
                                     <span class="sidebar-item-text fs-14px fw-semibold">Add Attribute</span>
+                                </a>
+                            </li>
+                            <li class="list-group-item px-0 py-0 sidebar-item mb-3 border-0">
+                                <a href="{{route('admin/topper')}}" class="text-heading text-decoration-none lh-1 sidebar-link py-5 px-6 d-flex align-items-center" title="Dashboard">
+<span class="sidebar-item-icon w-40px d-inline-block text-muted">
+<i class="fas fa-gifts"></i>
+</span>
+                                    <span class="sidebar-item-text fs-14px fw-semibold">Add Topper</span>
                                 </a>
                             </li>
 {{--                            <li class="list-group-item px-0 py-0 sidebar-item mb-3 has-children border-0">--}}
@@ -172,9 +181,15 @@
                                     <ul class="sub-menu list-unstyled"><li class="sidebar-item">
                                             <a class="sidebar-link pe-5 ps-8 py-5 lh-1 text-decoration-none fs-14px fw-semibold" href="{{route('admin/allproduct')}}" title="Product List">All Product</a>
                                         </li>
+{{--                                        <li class="sidebar-item">--}}
+{{--                                            <a class="sidebar-link pe-5 ps-8 py-5 lh-1 text-decoration-none fs-14px fw-semibold" href="{{route('admin/addproduct')}}" title="Product Grid">Add Product</a>--}}
+{{--                                        </li>--}}
                                         <li class="sidebar-item">
-                                            <a class="sidebar-link pe-5 ps-8 py-5 lh-1 text-decoration-none fs-14px fw-semibold" href="{{route('admin/addproduct')}}" title="Product Grid">Add Product</a>
+                                            <a class="sidebar-link pe-5 ps-8 py-5 lh-1 text-decoration-none fs-14px fw-semibold" href="{{route('admin/addproducts')}}" title="Product Grid">Add Product<span class="badge badge-soft-danger">Special</span></a>
                                         </li>
+{{--                                        <li class="sidebar-item">--}}
+{{--                                            <a class="sidebar-link pe-5 ps-8 py-5 lh-1 text-decoration-none fs-14px fw-semibold" href="{{route('admin/option')}}" title="Product Grid">Add Product Option</a>--}}
+{{--                                        </li>--}}
                                         <li class="sidebar-item">
                                             <a class="sidebar-link pe-5 ps-8 py-5 lh-1 text-decoration-none fs-14px fw-semibold" href="{{route('admin/addproduct1')}}" title="Product Grid">Add Product <span class="badge badge-soft-danger">Hots</span></a>
                                         </li>
@@ -312,11 +327,12 @@
                 <div class="container-fluid">
                     <nav class="navbar navbar-light py-0 row no-gutters px-3 px-lg-0">
                         <div class="col-md-4 px-0 px-md-6 order-1 order-md-0">
-                            <form>
+                            <form action="{{route('admin/searchproduct')}}" method="post">
+                                @csrf
                                 <div class="input-group position-relative bg-input rounded">
-                                    <input type="text" class="form-control border-1 pl-4 shadow-none" placeholder="Search Item">
+                                    <input type="text" name="name" class="form-control border-1 pl-4 shadow-none" placeholder="Search Item">
                                     <div class="input-group-append fs-14">
-                                        <button class="btn btn-hover-bg-primary btn-hover-border-primary rounded-0 rounded-end border-start border-0 h-100 px-8 py-5">
+                                        <button type="submit" class="btn btn-hover-bg-primary btn-hover-border-primary rounded-0 rounded-end border-start border-0 h-100 px-8 py-5">
                                             <i class="far fa-search"></i>
                                         </button>
                                     </div>

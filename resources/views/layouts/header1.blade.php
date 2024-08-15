@@ -281,7 +281,7 @@
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div class="content">
-                                    175 10h Street, Office 375 Berlin, De 21562
+lagos nigeria
                                 </div>
                             </li>
                             <li>
@@ -289,7 +289,7 @@
                                     <i class="fas fa-phone"></i>
                                 </div>
                                 <div class="content">
-                                    <a href="tel:2151234567">+123 34598768</a> <br> <a href="tel:2151234567">+554 34598734</a>
+                                    <a href="tel:2151234567">0800000000</a> <br> <a href="tel:2151234567">08000000</a>
                                 </div>
                             </li>
                             <li>
@@ -297,7 +297,7 @@
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="content">
-                                    <a href="mailto:name@email.com">food@restan.com</a>
+                                    <a href="mailto:name@email.com">food@1303.com</a>
                                 </div>
                             </li>
                         </ul>
@@ -343,7 +343,7 @@
                 </div>
                 <div class="col-lg-6 text-end">
                     <p>
-                        © Copyright 2024 Restan. All Rights Reserved
+                        © Copyright 2024 1303. All Rights Reserved
                     </p>
                 </div>
             </div>

@@ -376,7 +376,7 @@
                                 <div class="review-items">
                                     <div class="item">
                                         <div class="thumb">
-                                            <img src="assets/img/team/1.jpg" alt="Thumb">
+                                            <img src="13/assets/img/team/1.jpg" alt="Thumb">
                                         </div>
                                         <div class="info">
                                             <div class="rating">
@@ -488,7 +488,7 @@
                                     <div class="product">
                                         <div class="product-contents">
                                             <div class="product-image">
-                                                <a href="{{route('cakedetail', $pro['id'])}}">
+                                                <a href="{{route('fooddetail', $pro['id'])}}">
                                                     <img src="{{url($pro['image'])}}" alt="Product">
                                                 </a>
 {{--                                                <div class="shop-action">--}}
@@ -505,12 +505,12 @@
                                             <div class="product-caption">
 
                                                 <h4 class="product-title">
-                                                    <a href="{{route('cakedetail', $pro['id'])}}">{{$pro['name']}}</a>
+                                                    <a href="{{route('fooddetail', $pro['id'])}}">{{$pro['name']}}</a>
                                                 </h4>
                                                 <div class="price">
                                                     <span>₦{{number_format(intval($pro['price'] *1))}}</span>
                                                 </div>
-                                                <a href="{{route('cakedetail', $pro['id'])}}" class="cart-btn"><i class="fas fa-shopping-bag"></i> Add to cart</a>
+                                                <a href="{{route('fooddetail', $pro['id'])}}" class="cart-btn"><i class="fas fa-shopping-bag"></i> Add to cart</a>
                                             </div>
                                         </div>
                                     </div>

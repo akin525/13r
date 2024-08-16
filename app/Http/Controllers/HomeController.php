@@ -10,6 +10,7 @@ use App\Models\Attribute;
 use App\Models\Cart;
 use App\Models\Categories;
 use App\Models\Cheff;
+use App\Models\Chefs;
 use App\Models\Colors;
 use App\Models\FQ;
 use App\Models\Homepage;
@@ -96,15 +97,16 @@ function landingpage()
             $hot=Products::where('cool', 'hots')->get();
             $fq=FQ::all();
             $page=Homepage::where('status', 1)->first();
+            $chef=Chefs::all();
             if ($page->page == 01){
                 return view('welcome', compact('product',
-                    'product1', 'setting', 'fq', 'hot', 'latest', 'category', 'cartsum', 'cart'));
+                    'product1', 'setting', 'fq', 'hot', 'latest', 'category', 'cartsum', 'cart', 'chef'));
             }elseif ($page->page == 02){
                 return view('homepage1', compact('product',
-                    'product1', 'setting', 'hot', 'fq', 'latest', 'category', 'cartsum', 'cart'));
+                    'product1', 'setting', 'hot', 'fq', 'latest', 'category', 'cartsum', 'cart', 'chef'));
             }elseif ($page->page == 03){
                 return view('home', compact('product',
-                    'product1', 'setting', 'hot', 'fq', 'latest', 'category', 'cartsum', 'cart'));
+                    'product1', 'setting', 'hot', 'fq', 'latest', 'category', 'cartsum', 'cart', 'chef'));
             }
 
 }

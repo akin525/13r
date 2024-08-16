@@ -281,7 +281,7 @@
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div class="content">
-lagos nigeria
+                                    lagos nigeria
                                 </div>
                             </li>
                             <li>
@@ -332,13 +332,13 @@ lagos nigeria
     <!-- Footer Bottom -->
     <div class="footer-bottom text-light">
         <div class="footer-bottom-shape">
-            <img src="assets/img/shape/9.png" alt="Image Not Found">
+            <img src="13/assets/img/shape/9.png" alt="Image Not Found">
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="footer-logo">
-                        <img src="assets/img/logo-light.png" alt="Logo">
+                        <img src="{{asset('13.jpeg')}}" alt="Logo">
                     </div>
                 </div>
                 <div class="col-lg-6 text-end">
@@ -351,6 +351,7 @@ lagos nigeria
     </div>
     <!-- End Footer Bottom -->
 </footer>
+
 <!-- End Footer -->
 
 <!-- jQuery Frameworks

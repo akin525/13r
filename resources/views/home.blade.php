@@ -141,7 +141,7 @@
                         <div class="tab-content food-style-two-content" id="nav-tabContent">
 
                             <!-- Tab Single Item -->
-                            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="nav-id-1">
+{{--                            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="nav-id-1">--}}
                                 <div class="row">
                                     @forelse($product as $pro)
 
@@ -176,7 +176,7 @@
                                         <p class="text-center" style="font: 24px cormorant, serif">No Product Available On Store</p>
                                     @endforelse
                                 </div>
-                            </div>
+{{--                            </div>--}}
                             <!-- End Tab Single Item -->
 
 

@@ -142,172 +142,172 @@
                                 </div>
                             </div>
                         </div>
-{{--                        <div class="col-lg-6">--}}
-{{--                            <div class="single-product-contents">--}}
-{{--                                <div class="summary-top-box">--}}
+                        <div class="col-lg-6">
+                            <div class="single-product-contents">
+                                <div class="summary-top-box">
 {{--                                    <div class="product-tags">--}}
 {{--                                        <a href="#">Cheese</a>--}}
 {{--                                        <a href="#">Pizza</a>--}}
 {{--                                    </div>--}}
-{{--                                    <div class="review-count">--}}
-{{--                                        <div class="rating">--}}
-{{--                                            <i class="fas fa-star"></i>--}}
-{{--                                            <i class="fas fa-star"></i>--}}
-{{--                                            <i class="fas fa-star"></i>--}}
-{{--                                            <i class="fas fa-star"></i>--}}
-{{--                                            <i class="fas fa-star-half-alt"></i>--}}
-{{--                                        </div>--}}
-{{--                                        <span>(8 Review)</span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <h2 class="product-title">--}}
-{{--                                    {{$product->name}}--}}
-{{--                                </h2>--}}
-{{--                                <div class="price">--}}
+                                    <div class="review-count">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span>(8 Review)</span>
+                                    </div>
+                                </div>
+                                <h2 class="product-title">
+                                    {{$product->name}}
+                                </h2>
+                                <div class="price">
 {{--                                    <span><del>$8.00</del></span>--}}
-{{--                                    <span>{{$product->price}}</span>--}}
-{{--                                </div>--}}
-{{--                                <div class="product-stock validthemes-in-stock">--}}
-{{--                                    <span>In Stock</span>--}}
-{{--                                </div>--}}
-{{--                                <p>--}}
-{{--                                    {!! $product->description !!}--}}
-{{--                                </p>--}}
+                                    <span>{{$product->price}}</span>
+                                </div>
+                                <div class="product-stock validthemes-in-stock">
+                                    <span>In Stock</span>
+                                </div>
+                                <p>
+                                    {!! $product->description !!}
+                                </p>
 
-{{--                                @php--}}
-{{--                                    // Initialize arrays to hold attribute values and attributes--}}
-{{--                                    $attributeValues = [];--}}
-{{--                                    $attributesOnly = [];--}}
-{{--                                    $prices = []; // To hold prices for each attribute value--}}
+                                @php
+                                    // Initialize arrays to hold attribute values and attributes
+                                    $attributeValues = [];
+                                    $attributesOnly = [];
+                                    $prices = []; // To hold prices for each attribute value
 
-{{--                                    // Check if variations exist and is not null--}}
-{{--                                    if ($product->variations) {--}}
-{{--                                        if ($product->variations->isNotEmpty()) {--}}
-{{--                                            foreach ($product->variations as $variation) {--}}
-{{--                                                foreach ($variation->options as $option) {--}}
-{{--                                                    $attributeValues[$option->name][] = $option->value;--}}
-{{--                                                    $prices[$option->value] = $variation->price; // Set the price for the option--}}
-{{--                                                }--}}
-{{--                                            }--}}
-{{--                                        }--}}
-{{--                                    }--}}
+                                    // Check if variations exist and is not null
+                                    if ($product->variations) {
+                                        if ($product->variations->isNotEmpty()) {
+                                            foreach ($product->variations as $variation) {
+                                                foreach ($variation->options as $option) {
+                                                    $attributeValues[$option->name][] = $option->value;
+                                                    $prices[$option->value] = $variation->price; // Set the price for the option
+                                                }
+                                            }
+                                        }
+                                    }
 
-{{--                                    // Check if attributes only (without variations) exist and is not null--}}
-{{--                                    if ($product->attributes) {--}}
-{{--                                        if ($product->attributes->isNotEmpty()) {--}}
-{{--                                            foreach ($product->attributes as $attribute) {--}}
-{{--                                                $attributesOnly[$attribute->name][] = $attribute->value;--}}
-{{--                                            }--}}
-{{--                                        }--}}
-{{--                                    }--}}
-{{--                                @endphp--}}
+                                    // Check if attributes only (without variations) exist and is not null
+                                    if ($product->attributes) {
+                                        if ($product->attributes->isNotEmpty()) {
+                                            foreach ($product->attributes as $attribute) {
+                                                $attributesOnly[$attribute->name][] = $attribute->value;
+                                            }
+                                        }
+                                    }
+                                @endphp
 
-{{--                                @if(!empty($attributeValues) || !empty($attributesOnly))--}}
-{{--                                    @foreach($attributeValues as $attributeName => $values)--}}
-{{--                                        @php--}}
-{{--                                            $uniqueValues = array_unique($values);--}}
-{{--                                        @endphp--}}
-{{--                                        <div class="product-attribute mb-5">--}}
-{{--                                            <label for="{{ Str::slug($attributeName) }}" class="cormorant-upright-bold">{{ ucfirst($attributeName) }}</label>--}}
-{{--                                            <div class="select-wrapper">--}}
-{{--                                                <select name="attributes[{{ $attributeName }}]" id="{{ Str::slug($attributeName) }}" class="custom-select cormorant-upright-light" required>--}}
-{{--                                                    <option value="" data-price="0">Choose an option</option>--}}
-{{--                                                    @foreach ($uniqueValues as $value)--}}
-{{--                                                        <option value="{{ $value }}" data-price="{{ $prices[$value] ?? 0 }}">{{ $value }}</option>--}}
-{{--                                                    @endforeach--}}
-{{--                                                </select>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    @endforeach--}}
+                                @if(!empty($attributeValues) || !empty($attributesOnly))
+                                    @foreach($attributeValues as $attributeName => $values)
+                                        @php
+                                            $uniqueValues = array_unique($values);
+                                        @endphp
+                                        <div class="product-attribute mb-5">
+                                            <label for="{{ Str::slug($attributeName) }}" class="cormorant-upright-bold">{{ ucfirst($attributeName) }}</label>
+                                            <div class="select-wrapper">
+                                                <select name="attributes[{{ $attributeName }}]" id="{{ Str::slug($attributeName) }}" class="custom-select cormorant-upright-light" required>
+                                                    <option value="" data-price="0">Choose an option</option>
+                                                    @foreach ($uniqueValues as $value)
+                                                        <option value="{{ $value }}" data-price="{{ $prices[$value] ?? 0 }}">{{ $value }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    @endforeach
 
-{{--                                    @foreach($attributesOnly as $attributeName => $values)--}}
-{{--                                        @php--}}
-{{--                                            $uniqueValues = array_unique($values);--}}
-{{--                                        @endphp--}}
-{{--                                        <div class="product-attribute mb-5">--}}
-{{--                                            <label for="{{ Str::slug($attributeName) }}" class="cormorant-upright-bold">{{ ucfirst($attributeName) }}</label>--}}
-{{--                                            <div class="select-wrapper">--}}
-{{--                                                <select name="attributes[{{ $attributeName }}]" id="{{ Str::slug($attributeName) }}" class="custom-select cormorant-upright-light" required>--}}
-{{--                                                    <option value="" data-price="0">Choose an option</option>--}}
-{{--                                                    @foreach ($uniqueValues as $value)--}}
-{{--                                                        <option value="{{ $value }}" data-price="{{ $prices[$value] ?? 0 }}">{{ $value }}</option>--}}
-{{--                                                    @endforeach--}}
-{{--                                                </select>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    @endforeach--}}
-{{--                                @else--}}
+                                    @foreach($attributesOnly as $attributeName => $values)
+                                        @php
+                                            $uniqueValues = array_unique($values);
+                                        @endphp
+                                        <div class="product-attribute mb-5">
+                                            <label for="{{ Str::slug($attributeName) }}" class="cormorant-upright-bold">{{ ucfirst($attributeName) }}</label>
+                                            <div class="select-wrapper">
+                                                <select name="attributes[{{ $attributeName }}]" id="{{ Str::slug($attributeName) }}" class="custom-select cormorant-upright-light" required>
+                                                    <option value="" data-price="0">Choose an option</option>
+                                                    @foreach ($uniqueValues as $value)
+                                                        <option value="{{ $value }}" data-price="{{ $prices[$value] ?? 0 }}">{{ $value }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
 
-{{--                                @endif--}}
-{{--                                <script>--}}
-{{--                                    $(document).ready(function() {--}}
-{{--                                        // Initialize base price--}}
-{{--                                        let basePrice = parseFloat($('#productBasePrice').val()) || 0;--}}
+                                @endif
+                                <script>
+                                    $(document).ready(function() {
+                                        // Initialize base price
+                                        let basePrice = parseFloat($('#productBasePrice').val()) || 0;
 
-{{--                                        function updateTotalAmount() {--}}
-{{--                                            // Start with the base price--}}
-{{--                                            let totalAmount = basePrice;--}}
-{{--                                            console.log("Base price: " + totalAmount);--}}
+                                        function updateTotalAmount() {
+                                            // Start with the base price
+                                            let totalAmount = basePrice;
+                                            console.log("Base price: " + totalAmount);
 
-{{--                                            // Iterate over each select element to add the price of selected options--}}
-{{--                                            $('select').each(function() {--}}
-{{--                                                var selectedOption = $(this).find('option:selected');--}}
-{{--                                                var price = parseFloat(selectedOption.data('price')) || 0; // Get the price from data attribute--}}
-{{--                                                console.log("Selected option: " + selectedOption.text() + " Price: " + price);--}}
+                                            // Iterate over each select element to add the price of selected options
+                                            $('select').each(function() {
+                                                var selectedOption = $(this).find('option:selected');
+                                                var price = parseFloat(selectedOption.data('price')) || 0; // Get the price from data attribute
+                                                console.log("Selected option: " + selectedOption.text() + " Price: " + price);
 
-{{--                                                // Only add price if it's not the default option--}}
-{{--                                                if (selectedOption.val()) {--}}
-{{--                                                    totalAmount += price; // Add to the total amount--}}
-{{--                                                }--}}
-{{--                                            });--}}
+                                                // Only add price if it's not the default option
+                                                if (selectedOption.val()) {
+                                                    totalAmount += price; // Add to the total amount
+                                                }
+                                            });
 
-{{--                                            $('#totalAmount').val(totalAmount.toFixed(2)); // Update the total amount display--}}
-{{--                                            console.log("Total amount: " + totalAmount);--}}
-{{--                                        }--}}
+                                            $('#totalAmount').val(totalAmount.toFixed(2)); // Update the total amount display
+                                            console.log("Total amount: " + totalAmount);
+                                        }
 
-{{--                                        // Bind the updateTotalAmount function to the change event of the select elements--}}
-{{--                                        $('select').on('change', updateTotalAmount);--}}
+                                        // Bind the updateTotalAmount function to the change event of the select elements
+                                        $('select').on('change', updateTotalAmount);
 
-{{--                                        // Initial update--}}
-{{--                                        updateTotalAmount();--}}
-{{--                                    });--}}
-{{--                                </script>--}}
+                                        // Initial update
+                                        updateTotalAmount();
+                                    });
+                                </script>
 
-{{--                                <div class="product-purchase-list">--}}
-{{--                                    <input type="number" id="quantity" step="1" name="quantity" min="0" placeholder="0">--}}
-{{--                                    <a href="#" class="btn secondary btn-theme btn-sm animation">--}}
-{{--                                        <i class="fas fa-shopping-cart"></i>--}}
-{{--                                        Add to cart--}}
-{{--                                    </a>--}}
-{{--                                    <div class="shop-action">--}}
-{{--                                        <ul>--}}
-{{--                                            <li class="wishlist">--}}
-{{--                                                <a href="#"><span>Add to wishlist</span></a>--}}
-{{--                                            </li>--}}
-{{--                                            <li class="compare">--}}
-{{--                                                <a href="#"><span>Compare</span></a>--}}
-{{--                                            </li>--}}
-{{--                                        </ul>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <div class="product-purchase-list">
+                                    <input type="number" id="quantity" step="1" name="quantity" min="0" placeholder="0">
+                                    <a href="#" class="btn secondary btn-theme btn-sm animation">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Add to cart
+                                    </a>
+                                    <div class="shop-action">
+                                        <ul>
+                                            <li class="wishlist">
+                                                <a href="#"><span>Add to wishlist</span></a>
+                                            </li>
+                                            <li class="compare">
+                                                <a href="#"><span>Compare</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
 {{--                                <div class="product-estimate-delivary">--}}
 {{--                                    <i class="fas fa-box-open"></i>--}}
 {{--                                    <strong> 2-day Delivery</strong>--}}
 {{--                                    <span>Speedy and reliable parcel delivery!</span>--}}
 {{--                                </div>--}}
-{{--                                <div class="product-meta">--}}
-{{--                                <span class="sku">--}}
-{{--                                    <strong>SKU:</strong> BE45VGRT--}}
-{{--                                </span>--}}
-{{--                                    <span class="posted-in">--}}
-{{--                                    <strong>Category:</strong>--}}
-{{--                                    <a href="#">Computer</a> ,--}}
-{{--                                    <a href="#">Speaker</a>,--}}
-{{--                                    <a href="#">Headphone</a>--}}
-{{--                                </span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                                <div class="product-meta">
+                                <span class="sku">
+                                    <strong>SKU:</strong> BE45VGRT
+                                </span>
+                                    <span class="posted-in">
+                                    <strong>Category:</strong>
+                                    @foreach($product->categories as $category)
+                                    <a href="#">{{ $category->name }}</a> @if(!$loop->last), @endif
+                                        @endforeach
+                                </span>
+                                </div>
+                            </div>
+                        </div>
 
     @endisset
     <!-- Single Product Section End -->

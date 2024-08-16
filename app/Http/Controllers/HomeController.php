@@ -187,13 +187,13 @@ function cakedetail($request)
     function addCart(Request  $request)
     {
 //
-        $validate=$request->validate([
-            'id'=>'required',
-            'flavor'=>'required',
-            'size'=>'required',
-            'layers'=>'required',
-            'amount'=>'required',
-        ]);
+//        $validate=$request->validate([
+//            'id'=>'required',
+//            'flavor'=>'required',
+//            'size'=>'required',
+//            'layers'=>'required',
+//            'amount'=>'required',
+//        ]);
 
         $product = Products::find($request->id);
         if ($product) {

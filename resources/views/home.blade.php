@@ -167,7 +167,7 @@
                                                     <li>Chili sauce</li>
                                                     <li>Soft Drinks</li>
                                                 </ul>
-                                                <a href="{{route('fooddetail', $pro['id'])}}">{{$pro['name']}}" class="cart-btn-border"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                                                <a href="{{route('fooddetail', $pro['id'])}}" class="cart-btn-border"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                                             </div>
                                         </div>
                                     </div>

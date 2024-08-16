@@ -76,7 +76,7 @@
     </div>
     <!-- Breadcrumb Section Start -->
 
-    <div class="breadcrumb-area bg-cover shadow dark text-center text-light" style="background-image: url(13/assets/img/shape/5.jpg);">
+    <div class="breadcrumb-area bg-cover shadow dark text-center text-light" style="background-image: url({{asset('13/assets/img/shape/5.jpg')}});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -142,172 +142,172 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="single-product-contents">
-                                <div class="summary-top-box">
-                                    <div class="product-tags">
-                                        <a href="#">Cheese</a>
-                                        <a href="#">Pizza</a>
-                                    </div>
-                                    <div class="review-count">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                        </div>
-                                        <span>(8 Review)</span>
-                                    </div>
-                                </div>
-                                <h2 class="product-title">
-                                    {{$product->name}}
-                                </h2>
-                                <div class="price">
+{{--                        <div class="col-lg-6">--}}
+{{--                            <div class="single-product-contents">--}}
+{{--                                <div class="summary-top-box">--}}
+{{--                                    <div class="product-tags">--}}
+{{--                                        <a href="#">Cheese</a>--}}
+{{--                                        <a href="#">Pizza</a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="review-count">--}}
+{{--                                        <div class="rating">--}}
+{{--                                            <i class="fas fa-star"></i>--}}
+{{--                                            <i class="fas fa-star"></i>--}}
+{{--                                            <i class="fas fa-star"></i>--}}
+{{--                                            <i class="fas fa-star"></i>--}}
+{{--                                            <i class="fas fa-star-half-alt"></i>--}}
+{{--                                        </div>--}}
+{{--                                        <span>(8 Review)</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <h2 class="product-title">--}}
+{{--                                    {{$product->name}}--}}
+{{--                                </h2>--}}
+{{--                                <div class="price">--}}
 {{--                                    <span><del>$8.00</del></span>--}}
-                                    <span>{{$product->price}}</span>
-                                </div>
-                                <div class="product-stock validthemes-in-stock">
-                                    <span>In Stock</span>
-                                </div>
-                                <p>
-                                    {!! $product->description !!}
-                                </p>
+{{--                                    <span>{{$product->price}}</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-stock validthemes-in-stock">--}}
+{{--                                    <span>In Stock</span>--}}
+{{--                                </div>--}}
+{{--                                <p>--}}
+{{--                                    {!! $product->description !!}--}}
+{{--                                </p>--}}
 
-                                @php
-                                    // Initialize arrays to hold attribute values and attributes
-                                    $attributeValues = [];
-                                    $attributesOnly = [];
-                                    $prices = []; // To hold prices for each attribute value
+{{--                                @php--}}
+{{--                                    // Initialize arrays to hold attribute values and attributes--}}
+{{--                                    $attributeValues = [];--}}
+{{--                                    $attributesOnly = [];--}}
+{{--                                    $prices = []; // To hold prices for each attribute value--}}
 
-                                    // Check if variations exist and is not null
-                                    if ($product->variations) {
-                                        if ($product->variations->isNotEmpty()) {
-                                            foreach ($product->variations as $variation) {
-                                                foreach ($variation->options as $option) {
-                                                    $attributeValues[$option->name][] = $option->value;
-                                                    $prices[$option->value] = $variation->price; // Set the price for the option
-                                                }
-                                            }
-                                        }
-                                    }
+{{--                                    // Check if variations exist and is not null--}}
+{{--                                    if ($product->variations) {--}}
+{{--                                        if ($product->variations->isNotEmpty()) {--}}
+{{--                                            foreach ($product->variations as $variation) {--}}
+{{--                                                foreach ($variation->options as $option) {--}}
+{{--                                                    $attributeValues[$option->name][] = $option->value;--}}
+{{--                                                    $prices[$option->value] = $variation->price; // Set the price for the option--}}
+{{--                                                }--}}
+{{--                                            }--}}
+{{--                                        }--}}
+{{--                                    }--}}
 
-                                    // Check if attributes only (without variations) exist and is not null
-                                    if ($product->attributes) {
-                                        if ($product->attributes->isNotEmpty()) {
-                                            foreach ($product->attributes as $attribute) {
-                                                $attributesOnly[$attribute->name][] = $attribute->value;
-                                            }
-                                        }
-                                    }
-                                @endphp
+{{--                                    // Check if attributes only (without variations) exist and is not null--}}
+{{--                                    if ($product->attributes) {--}}
+{{--                                        if ($product->attributes->isNotEmpty()) {--}}
+{{--                                            foreach ($product->attributes as $attribute) {--}}
+{{--                                                $attributesOnly[$attribute->name][] = $attribute->value;--}}
+{{--                                            }--}}
+{{--                                        }--}}
+{{--                                    }--}}
+{{--                                @endphp--}}
 
-                                @if(!empty($attributeValues) || !empty($attributesOnly))
-                                    @foreach($attributeValues as $attributeName => $values)
-                                        @php
-                                            $uniqueValues = array_unique($values);
-                                        @endphp
-                                        <div class="product-attribute mb-5">
-                                            <label for="{{ Str::slug($attributeName) }}" class="cormorant-upright-bold">{{ ucfirst($attributeName) }}</label>
-                                            <div class="select-wrapper">
-                                                <select name="attributes[{{ $attributeName }}]" id="{{ Str::slug($attributeName) }}" class="custom-select cormorant-upright-light" required>
-                                                    <option value="" data-price="0">Choose an option</option>
-                                                    @foreach ($uniqueValues as $value)
-                                                        <option value="{{ $value }}" data-price="{{ $prices[$value] ?? 0 }}">{{ $value }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    @endforeach
+{{--                                @if(!empty($attributeValues) || !empty($attributesOnly))--}}
+{{--                                    @foreach($attributeValues as $attributeName => $values)--}}
+{{--                                        @php--}}
+{{--                                            $uniqueValues = array_unique($values);--}}
+{{--                                        @endphp--}}
+{{--                                        <div class="product-attribute mb-5">--}}
+{{--                                            <label for="{{ Str::slug($attributeName) }}" class="cormorant-upright-bold">{{ ucfirst($attributeName) }}</label>--}}
+{{--                                            <div class="select-wrapper">--}}
+{{--                                                <select name="attributes[{{ $attributeName }}]" id="{{ Str::slug($attributeName) }}" class="custom-select cormorant-upright-light" required>--}}
+{{--                                                    <option value="" data-price="0">Choose an option</option>--}}
+{{--                                                    @foreach ($uniqueValues as $value)--}}
+{{--                                                        <option value="{{ $value }}" data-price="{{ $prices[$value] ?? 0 }}">{{ $value }}</option>--}}
+{{--                                                    @endforeach--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    @endforeach--}}
 
-                                    @foreach($attributesOnly as $attributeName => $values)
-                                        @php
-                                            $uniqueValues = array_unique($values);
-                                        @endphp
-                                        <div class="product-attribute mb-5">
-                                            <label for="{{ Str::slug($attributeName) }}" class="cormorant-upright-bold">{{ ucfirst($attributeName) }}</label>
-                                            <div class="select-wrapper">
-                                                <select name="attributes[{{ $attributeName }}]" id="{{ Str::slug($attributeName) }}" class="custom-select cormorant-upright-light" required>
-                                                    <option value="" data-price="0">Choose an option</option>
-                                                    @foreach ($uniqueValues as $value)
-                                                        <option value="{{ $value }}" data-price="{{ $prices[$value] ?? 0 }}">{{ $value }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                @else
+{{--                                    @foreach($attributesOnly as $attributeName => $values)--}}
+{{--                                        @php--}}
+{{--                                            $uniqueValues = array_unique($values);--}}
+{{--                                        @endphp--}}
+{{--                                        <div class="product-attribute mb-5">--}}
+{{--                                            <label for="{{ Str::slug($attributeName) }}" class="cormorant-upright-bold">{{ ucfirst($attributeName) }}</label>--}}
+{{--                                            <div class="select-wrapper">--}}
+{{--                                                <select name="attributes[{{ $attributeName }}]" id="{{ Str::slug($attributeName) }}" class="custom-select cormorant-upright-light" required>--}}
+{{--                                                    <option value="" data-price="0">Choose an option</option>--}}
+{{--                                                    @foreach ($uniqueValues as $value)--}}
+{{--                                                        <option value="{{ $value }}" data-price="{{ $prices[$value] ?? 0 }}">{{ $value }}</option>--}}
+{{--                                                    @endforeach--}}
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    @endforeach--}}
+{{--                                @else--}}
 
-                                @endif
-                                <script>
-                                    $(document).ready(function() {
-                                        // Initialize base price
-                                        let basePrice = parseFloat($('#productBasePrice').val()) || 0;
+{{--                                @endif--}}
+{{--                                <script>--}}
+{{--                                    $(document).ready(function() {--}}
+{{--                                        // Initialize base price--}}
+{{--                                        let basePrice = parseFloat($('#productBasePrice').val()) || 0;--}}
 
-                                        function updateTotalAmount() {
-                                            // Start with the base price
-                                            let totalAmount = basePrice;
-                                            console.log("Base price: " + totalAmount);
+{{--                                        function updateTotalAmount() {--}}
+{{--                                            // Start with the base price--}}
+{{--                                            let totalAmount = basePrice;--}}
+{{--                                            console.log("Base price: " + totalAmount);--}}
 
-                                            // Iterate over each select element to add the price of selected options
-                                            $('select').each(function() {
-                                                var selectedOption = $(this).find('option:selected');
-                                                var price = parseFloat(selectedOption.data('price')) || 0; // Get the price from data attribute
-                                                console.log("Selected option: " + selectedOption.text() + " Price: " + price);
+{{--                                            // Iterate over each select element to add the price of selected options--}}
+{{--                                            $('select').each(function() {--}}
+{{--                                                var selectedOption = $(this).find('option:selected');--}}
+{{--                                                var price = parseFloat(selectedOption.data('price')) || 0; // Get the price from data attribute--}}
+{{--                                                console.log("Selected option: " + selectedOption.text() + " Price: " + price);--}}
 
-                                                // Only add price if it's not the default option
-                                                if (selectedOption.val()) {
-                                                    totalAmount += price; // Add to the total amount
-                                                }
-                                            });
+{{--                                                // Only add price if it's not the default option--}}
+{{--                                                if (selectedOption.val()) {--}}
+{{--                                                    totalAmount += price; // Add to the total amount--}}
+{{--                                                }--}}
+{{--                                            });--}}
 
-                                            $('#totalAmount').val(totalAmount.toFixed(2)); // Update the total amount display
-                                            console.log("Total amount: " + totalAmount);
-                                        }
+{{--                                            $('#totalAmount').val(totalAmount.toFixed(2)); // Update the total amount display--}}
+{{--                                            console.log("Total amount: " + totalAmount);--}}
+{{--                                        }--}}
 
-                                        // Bind the updateTotalAmount function to the change event of the select elements
-                                        $('select').on('change', updateTotalAmount);
+{{--                                        // Bind the updateTotalAmount function to the change event of the select elements--}}
+{{--                                        $('select').on('change', updateTotalAmount);--}}
 
-                                        // Initial update
-                                        updateTotalAmount();
-                                    });
-                                </script>
+{{--                                        // Initial update--}}
+{{--                                        updateTotalAmount();--}}
+{{--                                    });--}}
+{{--                                </script>--}}
 
-                                <div class="product-purchase-list">
-                                    <input type="number" id="quantity" step="1" name="quantity" min="0" placeholder="0">
-                                    <a href="#" class="btn secondary btn-theme btn-sm animation">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        Add to cart
-                                    </a>
-                                    <div class="shop-action">
-                                        <ul>
-                                            <li class="wishlist">
-                                                <a href="#"><span>Add to wishlist</span></a>
-                                            </li>
-                                            <li class="compare">
-                                                <a href="#"><span>Compare</span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+{{--                                <div class="product-purchase-list">--}}
+{{--                                    <input type="number" id="quantity" step="1" name="quantity" min="0" placeholder="0">--}}
+{{--                                    <a href="#" class="btn secondary btn-theme btn-sm animation">--}}
+{{--                                        <i class="fas fa-shopping-cart"></i>--}}
+{{--                                        Add to cart--}}
+{{--                                    </a>--}}
+{{--                                    <div class="shop-action">--}}
+{{--                                        <ul>--}}
+{{--                                            <li class="wishlist">--}}
+{{--                                                <a href="#"><span>Add to wishlist</span></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li class="compare">--}}
+{{--                                                <a href="#"><span>Compare</span></a>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 {{--                                <div class="product-estimate-delivary">--}}
 {{--                                    <i class="fas fa-box-open"></i>--}}
 {{--                                    <strong> 2-day Delivery</strong>--}}
 {{--                                    <span>Speedy and reliable parcel delivery!</span>--}}
 {{--                                </div>--}}
-                                <div class="product-meta">
-                                <span class="sku">
-                                    <strong>SKU:</strong> BE45VGRT
-                                </span>
+{{--                                <div class="product-meta">--}}
+{{--                                <span class="sku">--}}
+{{--                                    <strong>SKU:</strong> BE45VGRT--}}
+{{--                                </span>--}}
 {{--                                    <span class="posted-in">--}}
 {{--                                    <strong>Category:</strong>--}}
 {{--                                    <a href="#">Computer</a> ,--}}
 {{--                                    <a href="#">Speaker</a>,--}}
 {{--                                    <a href="#">Headphone</a>--}}
 {{--                                </span>--}}
-                                </div>
-                            </div>
-                        </div>
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
     @endisset
     <!-- Single Product Section End -->
@@ -329,9 +329,9 @@
                                 Additional Information
                             </button>
 
-                            <button class="nav-link" id="review-tab-control" data-bs-toggle="tab" data-bs-target="#review-tab" type="button" role="tab" aria-controls="review-tab" aria-selected="false">
-                                Review
-                            </button>
+{{--                            <button class="nav-link" id="review-tab-control" data-bs-toggle="tab" data-bs-target="#review-tab" type="button" role="tab" aria-controls="review-tab" aria-selected="false">--}}
+{{--                                Review--}}
+{{--                            </button>--}}
 
                         </div>
                         <!-- End Tab Nav -->
@@ -341,15 +341,9 @@
                             <!-- Tab Single -->
                             <div class="tab-pane fade show active" id="description-tab" role="tabpanel" aria-labelledby="description-tab-control">
                                 <p>
-                                    There is immense scope for organic production of vegetable crops in India since the agricultural sector has enormous organic resources like crop residues, livestock and other bio-products from agro industries. Organic farming is growing at a rapid pace among Indian farmers and entrepreneurs, particularly in rainfed and hilly areas where fertilizer consumption is less than 25 kg/ha/year [13].
+                                    {!! $product->description !!}
                                 </p>
-                                <ul>
-                                    <li>Status of organic vegetable production</li>
-                                    <li>Feasibility of organic practices</li>
-                                    <li>Sustainability of organic farming</li>
-                                    <li>Organic certification</li>
-                                    <li>Prospects and constraints of organic vegetable production</li>
-                                </ul>
+
                             </div>
                             <!-- End Single -->
 
@@ -487,189 +481,44 @@
                         <div class="vt-products text-center related-product-carousel swiper">
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
-                                <!-- Single product -->
-                                <div class="swiper-slide">
-                                    <div class="product">
-                                        <div class="product-contents">
-                                            <div class="product-image">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/img/shop/1.png" alt="Product">
-                                                </a>
-                                                <div class="shop-action">
-                                                    <ul>
-                                                        <li class="wishlist">
-                                                            <a href="#"><span>Add to wishlist</span></a>
-                                                        </li>
-                                                        <li class="quick-view">
-                                                            <a href="#"><span>Quick view</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-caption">
-                                                <div class="product-tags">
-                                                    <a href="#">Cheese</a>
-                                                    <a href="#">Pizza</a>
-                                                </div>
-                                                <h4 class="product-title">
-                                                    <a href="shop-single.html">Margherita Pizza</a>
-                                                </h4>
-                                                <div class="price">
-                                                    <span>$12.00</span>
-                                                </div>
-                                                <a href="#" class="cart-btn"><i class="fas fa-shopping-bag"></i> Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Single product -->
-                                <!-- Single product -->
-                                <div class="swiper-slide">
-                                    <div class="product">
-                                        <div class="product-contents">
-                                            <div class="product-image">
-                                                <span class="onsale">Sale!</span>
-                                                <a href="shop-single.html">
-                                                    <img src="assets/img/shop/2.png" alt="Product">
-                                                </a>
-                                                <div class="shop-action">
-                                                    <ul>
-                                                        <li class="wishlist">
-                                                            <a href="#"><span>Add to wishlist</span></a>
-                                                        </li>
-                                                        <li class="quick-view">
-                                                            <a href="#"><span>Quick view</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-caption">
-                                                <div class="product-tags">
-                                                    <a href="#">Creamy</a>
-                                                    <a href="#">Burger</a>
-                                                </div>
-                                                <h4 class="product-title">
-                                                    <a href="shop-single.html">Beef Burger</a>
-                                                </h4>
-                                                <div class="price">
-                                                    <span><del>$8.00</del></span>
-                                                    <span>$5.00</span>
-                                                </div>
-                                                <a href="#" class="cart-btn"><i class="fas fa-shopping-bag"></i> Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Single product -->
-                                <!-- Single product -->
-                                <div class="swiper-slide">
-                                    <div class="product">
-                                        <div class="product-contents">
-                                            <div class="product-image">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/img/shop/3.png" alt="Product">
-                                                </a>
-                                                <div class="shop-action">
-                                                    <ul>
-                                                        <li class="wishlist">
-                                                            <a href="#"><span>Add to wishlist</span></a>
-                                                        </li>
-                                                        <li class="quick-view">
-                                                            <a href="#"><span>Quick view</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-caption">
-                                                <div class="product-tags">
-                                                    <a href="#">Beef</a>
-                                                    <a href="#">Steak</a>
-                                                </div>
-                                                <h4 class="product-title">
-                                                    <a href="shop-single.html">Grilled Flank Steak</a>
-                                                </h4>
-                                                <div class="price">
-                                                    <span>$14.00</span>
-                                                </div>
-                                                <a href="#" class="cart-btn"><i class="fas fa-shopping-bag"></i> Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Single product -->
-                                <!-- Single product -->
-                                <div class="swiper-slide">
-                                    <div class="product">
-                                        <div class="product-contents">
-                                            <div class="product-image">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/img/shop/5.png" alt="Product">
-                                                </a>
-                                                <div class="shop-action">
-                                                    <ul>
-                                                        <li class="wishlist">
-                                                            <a href="#"><span>Add to wishlist</span></a>
-                                                        </li>
-                                                        <li class="quick-view">
-                                                            <a href="#"><span>Quick view</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-caption">
-                                                <div class="product-tags">
-                                                    <a href="#">BBQ</a>
-                                                    <a href="#">Meat</a>
-                                                </div>
-                                                <h4 class="product-title">
-                                                    <a href="shop-single.html">Barbecue Chicken</a>
-                                                </h4>
-                                                <div class="price">
-                                                    <span>$6.00</span>
-                                                </div>
-                                                <a href="#" class="cart-btn"><i class="fas fa-shopping-bag"></i> Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Single product -->
-                                <!-- Single product -->
-                                <div class="swiper-slide">
-                                    <div class="product">
-                                        <div class="product-contents">
-                                            <div class="product-image">
-                                                <a href="shop-single.html">
-                                                    <img src="assets/img/shop/8.png" alt="Product">
-                                                </a>
-                                                <div class="shop-action">
-                                                    <ul>
-                                                        <li class="wishlist">
-                                                            <a href="#"><span>Add to wishlist</span></a>
-                                                        </li>
-                                                        <li class="quick-view">
-                                                            <a href="#"><span>Quick view</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-caption">
-                                                <div class="product-tags">
-                                                    <a href="#">Food</a>
-                                                    <a href="#">Roll</a>
-                                                </div>
-                                                <h4 class="product-title">
-                                                    <a href="shop-single.html">Vegetable Roll</a>
-                                                </h4>
-                                                <div class="price">
-                                                    <span>$8.00</span>
-                                                </div>
-                                                <a href="#" class="cart-btn"><i class="fas fa-shopping-bag"></i> Add to cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Single product -->
+                                @forelse($product1 as $pro)
 
+                                <!-- Single product -->
+                                <div class="swiper-slide">
+                                    <div class="product">
+                                        <div class="product-contents">
+                                            <div class="product-image">
+                                                <a href="{{route('cakedetail', $pro['id'])}}">
+                                                    <img src="{{url($pro['image'])}}" alt="Product">
+                                                </a>
+{{--                                                <div class="shop-action">--}}
+{{--                                                    <ul>--}}
+{{--                                                        <li class="wishlist">--}}
+{{--                                                            <a href="#"><span>Add to wishlist</span></a>--}}
+{{--                                                        </li>--}}
+{{--                                                        <li class="quick-view">--}}
+{{--                                                            <a href="#"><span>Quick view</span></a>--}}
+{{--                                                        </li>--}}
+{{--                                                    </ul>--}}
+{{--                                                </div>--}}
+                                            </div>
+                                            <div class="product-caption">
+
+                                                <h4 class="product-title">
+                                                    <a href="{{route('cakedetail', $pro['id'])}}">{{$pro['name']}}</a>
+                                                </h4>
+                                                <div class="price">
+                                                    <span>₦{{number_format(intval($pro['price'] *1))}}</span>
+                                                </div>
+                                                <a href="{{route('cakedetail', $pro['id'])}}" class="cart-btn"><i class="fas fa-shopping-bag"></i> Add to cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @empty
+                                    <h2 class="text-center">Product Not found</h2>
+                                @endforelse
                             </div>
 
                         </div>

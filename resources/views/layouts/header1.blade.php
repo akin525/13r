@@ -332,7 +332,7 @@
     <!-- Footer Bottom -->
     <div class="footer-bottom text-light">
         <div class="footer-bottom-shape">
-            <img src="13/assets/img/shape/9.png" alt="Image Not Found">
+            <img src="{{asset('13/assets/img/shape/9.png')}}" alt="Image Not Found">
         </div>
         <div class="container">
             <div class="row">

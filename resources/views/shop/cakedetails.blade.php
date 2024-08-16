@@ -173,7 +173,8 @@
                                 <p>
                                     {!! $product->description !!}
                                 </p>
-
+                                <form method="post" action="{{route('addcart1')}}">
+                                    @csrf
                                 @php
                                     // Initialize arrays to hold attribute values and attributes
                                     $attributeValues = [];
@@ -275,10 +276,10 @@
 
                                 <div class="product-purchase-list">
                                     <input type="number" id="quantity" step="1" name="quantity" min="0" placeholder="0">
-                                    <a href="#" class="btn secondary btn-theme btn-sm animation">
+                                    <button type="submit"  class="btn secondary btn-theme btn-sm animation">
                                         <i class="fas fa-shopping-cart"></i>
                                         Add to cart
-                                    </a>
+                                    </button>
                                     <div class="shop-action">
                                         <ul>
                                             <li class="wishlist">
@@ -290,6 +291,7 @@
                                         </ul>
                                     </div>
                                 </div>
+                                </form>
 {{--                                <div class="product-estimate-delivary">--}}
 {{--                                    <i class="fas fa-box-open"></i>--}}
 {{--                                    <strong> 2-day Delivery</strong>--}}

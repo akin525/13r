@@ -141,7 +141,7 @@
                         <div class="tab-content food-style-two-content" id="nav-tabContent">
 
                             <!-- Tab Single Item -->
-{{--                            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="nav-id-1">--}}
+                            <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="nav-id-1">
                                 <div class="row">
                                     @forelse($product as $pro)
 
@@ -149,7 +149,7 @@
                                     <div class="col-xl-4 col-lg-6 col-md-6 mt-30">
                                         <div class="food-menu-style-three">
                                             <div class="thumb">
-                                                <img src={{url($pro['image'])}}" alt="Image Not Found">
+                                                <img src="{{url($pro['image'])}}" alt="Image Not Found">
                                                 <div class="d-flex">
                                                     <div class="food-review">
                                                         <i class="fas fa-star"></i>
@@ -176,7 +176,7 @@
                                         <p class="text-center" style="font: 24px cormorant, serif">No Product Available On Store</p>
                                     @endforelse
                                 </div>
-{{--                            </div>--}}
+                            </div>
                             <!-- End Tab Single Item -->
 
 

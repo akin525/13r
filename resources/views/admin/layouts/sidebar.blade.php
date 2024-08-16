@@ -428,7 +428,7 @@
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
-                            © Eko-Cake .
+                            © 1303 .
                         </div>
                         <div class="col-sm-6 text-sm-end text-center">
                             All rights reserved

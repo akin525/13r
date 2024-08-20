@@ -78,14 +78,14 @@
 
 
                                 <div class="checkbox-container">
-                                    <label>
-                                        <input type="hidden" name="topper" value="0">
-                                        <input type="checkbox" value="1" name="topper" class="checkbox" data-index="0" >Allow Topper
-                                    </label>
-                                    <label>
-                                        <input type="hidden" name="card" value="0">
-                                        <input type="checkbox" value="1" name="card" class="checkbox" data-index="1" > Allow Eko Card
-                                    </label>
+{{--                                    <label>--}}
+{{--                                        <input type="hidden" name="topper" value="0">--}}
+{{--                                        <input type="checkbox" value="1" name="topper" class="checkbox" data-index="0" >Allow Topper--}}
+{{--                                    </label>--}}
+{{--                                    <label>--}}
+{{--                                        <input type="hidden" name="card" value="0">--}}
+{{--                                        <input type="checkbox" value="1" name="card" class="checkbox" data-index="1" > Allow Eko Card--}}
+{{--                                    </label>--}}
                                     {{-- <label> --}}
                                     {{-- <input type="checkbox" class="checkbox" data-index="2"> Option 3 --}}
                                     {{-- </label> --}}

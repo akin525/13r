@@ -112,32 +112,32 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="checkbox-container">
-                                    <label class="toggle">
-                                        <input type="hidden" name="topper" value="0">
-                                        <input type="checkbox" value="1" name="topper" class="checkbox" data-index="0">
-                                        <span class="slider"></span>
-                                         Topper
-                                    </label>
-                                    <label class="toggle">
-                                        <input type="hidden" name="card" value="0">
-                                        <input type="checkbox" value="1" name="card" class="checkbox" data-index="1">
-                                        <span class="slider"></span>
-                                        Card
-                                    </label>
-                                    <label class="toggle">
-                                        <input type="hidden" name="color" value="0">
-                                        <input type="checkbox" value="1" name="color" class="checkbox" data-index="1" >
-                                        <span class="slider"></span>
-                                        Color
-                                    </label>
-                                    <label class="toggle">
-                                        <input type="hidden" name="text" value="0">
-                                        <input type="checkbox" value="1" name="text" class="checkbox" data-index="1" >
-                                        <span class="slider"></span>
-                                        Text
-                                    </label>
-                                </div>
+{{--                                <div class="checkbox-container">--}}
+{{--                                    <label class="toggle">--}}
+{{--                                        <input type="hidden" name="topper" value="0">--}}
+{{--                                        <input type="checkbox" value="1" name="topper" class="checkbox" data-index="0">--}}
+{{--                                        <span class="slider"></span>--}}
+{{--                                         Topper--}}
+{{--                                    </label>--}}
+{{--                                    <label class="toggle">--}}
+{{--                                        <input type="hidden" name="card" value="0">--}}
+{{--                                        <input type="checkbox" value="1" name="card" class="checkbox" data-index="1">--}}
+{{--                                        <span class="slider"></span>--}}
+{{--                                        Card--}}
+{{--                                    </label>--}}
+{{--                                    <label class="toggle">--}}
+{{--                                        <input type="hidden" name="color" value="0">--}}
+{{--                                        <input type="checkbox" value="1" name="color" class="checkbox" data-index="1" >--}}
+{{--                                        <span class="slider"></span>--}}
+{{--                                        Color--}}
+{{--                                    </label>--}}
+{{--                                    <label class="toggle">--}}
+{{--                                        <input type="hidden" name="text" value="0">--}}
+{{--                                        <input type="checkbox" value="1" name="text" class="checkbox" data-index="1" >--}}
+{{--                                        <span class="slider"></span>--}}
+{{--                                        Text--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
 
                                 <script>
                                     document.querySelectorAll('.checkbox').forEach(checkbox => {

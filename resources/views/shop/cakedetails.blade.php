@@ -175,6 +175,8 @@
                                 </p>
                                 <form method="post" action="{{route('addcart1')}}">
                                     @csrf
+                                    <input type="hidden" name="id" value="{{$product->id}}">
+
                                 @php
                                     // Initialize arrays to hold attribute values and attributes
                                     $attributeValues = [];

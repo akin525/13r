@@ -121,7 +121,7 @@
 
                     <!-- Cart Action Buttons Start -->
                     <div class="row justify-content-between gap-3">
-                        <div class="col-auto"><a href="{{route('cakes')}}" class="btn btn-outline-dark btn-primary-hover rounded-0">Continue Shopping</a></div>
+                        <div class="col-auto"><a href="{{route('shop')}}" class="btn btn-outline-dark btn-primary-hover rounded-0">Continue Shopping</a></div>
                         <div class="col-auto d-flex flex-wrap gap-3">
                             <button class="btn btn-outline-dark btn-primary-hover rounded-0" id="clearcart">Clear Cart</button>
                         </div>

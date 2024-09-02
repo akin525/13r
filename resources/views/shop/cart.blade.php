@@ -58,12 +58,12 @@
                                     </form>
                                 </th>
                                 <th class="cart-thumb">
-                                    <a href="{{route('cakedetail',$cat['id'])}}">
+                                    <a href="{{route('fooddetail',$cat['id'])}}">
                                         <img src="{{url($cat['image'])}}" alt="Croissant Italy Cake">
                                     </a>
                                 </th>
                                 <th class="text-start">
-                                    <a href="{{route('cakedetail',$cat['id'])}}">{{$cat['name']}}</a>
+                                    <a href="{{route('fooddetail',$cat['id'])}}">{{$cat['name']}}</a>
                                 </th>
                                 <td>₦{{$cat['amount']}}</td>
                                 <td class="text-center cart-quantity">
@@ -89,7 +89,7 @@
                         @foreach($cart as $key => $cat)
                             <div class="cart-product-mobile">
                                 <div class="cart-product-mobile-thumb">
-                                    <a href="{{ route('cakedetail', $cat['id']) }}" class="cart-product-mobile-image">
+                                    <a href="{{ route('fooddetail', $cat['id']) }}" class="cart-product-mobile-image">
                                         <img src="{{ url($cat['image']) }}" alt="{{ $cat['name'] }}" width="90" height="103">
                                     </a>
                                     <!-- Form for removing item from cart -->
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="cart-product-mobile-content">
                                     <h5 class="cart-product-mobile-title">
-                                        <a href="{{ route('cakedetail', $cat['id']) }}">{{ $cat['name'] }}</a>
+                                        <a href="{{ route('fooddetail', $cat['id']) }}">{{ $cat['name'] }}</a>
                                     </h5>
                                     <span class="cart-product-mobile-quantity">1 x ₦{{ $cat['amount'] }}</span>
                                     <span class="cart-product-mobile-total"><b>Total: ₦{{ $cat['amount'] }}</b></span>
